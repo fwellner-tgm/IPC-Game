@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>client ServerController &#8212; IPC_Project 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="IPC_Project 1.0 documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ServerController">
+<span id="client-servercontroller"></span><h1>client ServerController<a class="headerlink" href="#module-ServerController" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ServerController.CommandType">
+<em class="property">class </em><code class="descclassname">ServerController.</code><code class="descname">CommandType</code><a class="headerlink" href="#ServerController.CommandType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ServerController.FieldType">
+<em class="property">class </em><code class="descclassname">ServerController.</code><code class="descname">FieldType</code><a class="headerlink" href="#ServerController.FieldType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ServerController.ServerController">
+<em class="property">class </em><code class="descclassname">ServerController.</code><code class="descname">ServerController</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<p>Der Spieleserver</p>
+<dl class="method">
+<dt id="ServerController.ServerController.bind_and_listen">
+<code class="descname">bind_and_listen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController.bind_and_listen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erzeugt einen neuen Thread, welcher auf eingehende
+Verbindungen wartet.
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ServerController.ServerController.check_position">
+<code class="descname">check_position</code><span class="sig-paren">(</span><em>position</em>, <em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController.check_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prueft die aktuelle Position und ermittelt, ob das
+Spiel gewonnen oder verloren wurde.
+:param position: Position des Spielers
+:type position: (int, int)
+:param number: Spielernummer (1 oder 2)
+:type number: int
+:return: -1 (verloren), 1 (gewonnen), 0 (weder noch)
+:rtype int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ServerController.ServerController.closeEvent">
+<code class="descname">closeEvent</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController.closeEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reagiert auf das Close-Event und beendet offene Verbindungen.
+:param event:
+:return: None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.cols">
+<code class="descname">cols</code><em class="property"> = 10</em><a class="headerlink" href="#ServerController.ServerController.cols" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ServerController.ServerController.draw_map">
+<code class="descname">draw_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController.draw_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeichnet die Felder in die entsprechenden Widgets.
+:return: None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.errorsignal">
+<code class="descname">errorsignal</code><em class="property"> = &lt;PySide.QtCore.Signal object&gt;</em><a class="headerlink" href="#ServerController.ServerController.errorsignal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ServerController.ServerController.field_message">
+<code class="descname">field_message</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController.field_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erzeugt die Nachricht, welche alle sichtabren
+Felder des Spielers anzeigt.
+:param position: Position des jeweiligen Spielers
+:type position: (int, int)
+:return: Nachricht mit sichtbaren Felder
+:rtype: str</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ServerController.ServerController.game_loop">
+<code class="descname">game_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController.game_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bildet die Spielelogik ab und wickelt die Zuege ab.
+:return: None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.msgsignal">
+<code class="descname">msgsignal</code><em class="property"> = &lt;PySide.QtCore.Signal object at 0x04107FC0&gt;</em><a class="headerlink" href="#ServerController.ServerController.msgsignal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.pCastle1">
+<code class="descname">pCastle1</code><em class="property"> = &lt;PySide.QtGui.QPalette object&gt;</em><a class="headerlink" href="#ServerController.ServerController.pCastle1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.pCastle2">
+<code class="descname">pCastle2</code><em class="property"> = &lt;PySide.QtGui.QPalette object&gt;</em><a class="headerlink" href="#ServerController.ServerController.pCastle2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.pForest">
+<code class="descname">pForest</code><em class="property"> = &lt;PySide.QtGui.QPalette object at 0x054799B8&gt;</em><a class="headerlink" href="#ServerController.ServerController.pForest" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.pGrass">
+<code class="descname">pGrass</code><em class="property"> = &lt;PySide.QtGui.QPalette object&gt;</em><a class="headerlink" href="#ServerController.ServerController.pGrass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.pLake">
+<code class="descname">pLake</code><em class="property"> = &lt;PySide.QtGui.QPalette object at 0x054799E0&gt;</em><a class="headerlink" href="#ServerController.ServerController.pLake" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.pMountain">
+<code class="descname">pMountain</code><em class="property"> = &lt;PySide.QtGui.QPalette object at 0x05479A08&gt;</em><a class="headerlink" href="#ServerController.ServerController.pMountain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.rows">
+<code class="descname">rows</code><em class="property"> = 10</em><a class="headerlink" href="#ServerController.ServerController.rows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="ServerController.ServerController.setup_game">
+<code class="descname">setup_game</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController.setup_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erzeugt ein neues Spiel und mischt die Felder durch.
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ServerController.ServerController.showError">
+<code class="descname">showError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#ServerController.ServerController.showError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeigt Fehlermeldungen an.
+:param message: Anzuzeigende Nachricht.
+:type message: str
+:return: None</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ServerController.ServerController.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object at 0x05479A30&gt;</em><a class="headerlink" href="#ServerController.ServerController.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ServerController.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Florian Wellner.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/ServerController.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
